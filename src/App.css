@@ -1,34 +1,78 @@
 .App {
   max-width: 600px;
   margin: 40px auto;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f7f7f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* page-level root that fills available space so footer is pushed to bottom */
+.App-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensure full viewport height when mounted alone */
 }
 
 label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
 }
 
 input, select {
-  padding: 6px;
-  margin-left: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  outline: none;
 }
 
 button {
-  margin-top: 15px;
-  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 24px;
   font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357abd;
 }
 
 .resultat {
-  margin-top: 20px;
-  background: #e0ffe0;
-  padding: 15px;
-  border: 1px solid #b3ffb3;
-  border-radius: 5px;
+  margin-top: 25px;
+  background: #e6f9ec;
+  padding: 20px;
+  border: 1px solid #a3e4b7;
+  border-radius: 8px;
+  color: #2d6a4f;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(163, 228, 183, 0.2);
+}
+/* center number inputs horizontally and center their value */
+input[type="number"] {
+  padding: 10px;
+  display: block;
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+  width: 100%;        /* adjust width to your preference */
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
 }
