@@ -1,4 +1,4 @@
-const Footer = ({ company = "Store Havelse", year = new Date().getFullYear() }) => {
+const Footer = ({ company = "Store Havelse Dyreklinik", year = new Date().getFullYear() }) => {
     return (
         <footer style={styles.footer} role="contentinfo">
             <div style={styles.inner}>
@@ -10,10 +10,9 @@ const Footer = ({ company = "Store Havelse", year = new Date().getFullYear() }) 
 
                 <nav aria-label="Footer" style={styles.nav}>
                     <a href="/" style={styles.link}>Forside</a>
-                    <a href="/about" style={styles.link}>Om</a>
-                    <a href="/kontakt" style={styles.link}>Kontakt</a>
+                    <a href="mailto:philip.c.juhl@gmail.com" style={styles.link}>Kontakt</a>
                     <a
-                        href="https://github.com"
+                        href="https://github.com/philipcj01"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={styles.link}

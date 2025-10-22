@@ -1,63 +1,108 @@
 import React, { useState } from 'react';
 import './App.css';
+import { fetchMedicineOptions } from './tools/retrieve-medicine-options';
+import { calculateInjection } from './tools/calculate-injection';
 
 function App() {
-  const [dyretype, setDyretype] = useState('hund');
-  const [vaegt, setVaegt] = useState('');
-  const [medicin, setMedicinType] = useState('type1');
-  const [resultat, setResultat] = useState(null);
+  const [animalType, setAnimalType] = useState('dog');
+  const [weight, setWeight] = useState('');
+  const [medicine, setMedicineType] = useState('');
+  const [result, setResult] = useState(null);
+  const [formula, setFormula] = useState(null);
+  const [medicineOptions, setMedicineOptions] = useState([]);
 
-  const beregnInjektion = () => {
-    if (!vaegt || !medicin) {
-      alert("Udfyld alle felter.");
-      return;
-    }
-
-    const kilogram = parseFloat(vaegt);
-
-    const volumenMl = kilogram * (0.22);
-
-    setResultat(volumenMl.toFixed(2));
+  const handleCalculateInjection = () => {
+    calculateInjection(weight, medicine, formula, animalType, setResult);
   };
+
+  const fetchMedicineOptionsOnLoad = async () => {
+    const options = await fetchMedicineOptions();
+    setMedicineOptions(options);
+  };
+
+  React.useEffect(() => {
+    fetchMedicineOptionsOnLoad();
+  }, []);
 
   return (
     <div className="App-root">
       <div className="App">
-        <h1>Injektionsberegner for dyr</h1>
+        <h1>Injektionsberegner</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <label>
-            Dyr:
-            <select value={dyretype} onChange={(e) => setDyretype(e.target.value)}>
-              <option value="hund">Hund</option>
-              <option value="kat">Kat</option>
-            </select>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center' }}>
+              <label>
+                <input
+                  type="radio"
+                  name="animalType"
+                  value="dog"
+                  checked={animalType === 'dog'}
+                  onChange={(e) => setAnimalType(e.target.value)}
+                  style={{ display: 'none' }}
+                />
+                <img
+                  src={require('./imgs/animals/dog.png')}
+                  alt="Hund"
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    cursor: 'pointer',
+                    border: animalType === 'dog' ? '2px solid #357abd' : '2px solid transparent',
+                    borderRadius: '5px',
+                  }}
+                />
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="animalType"
+                  value="cat"
+                  checked={animalType === 'cat'}
+                  onChange={(e) => setAnimalType(e.target.value)}
+                  style={{ display: 'none' }}
+                />
+                <img
+                  src={require('./imgs/animals/cat.png')}
+                  alt="Kat"
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    cursor: 'pointer',
+                    border: animalType === 'cat' ? '2px solid #357abd' : '2px solid transparent',
+                    borderRadius: '5px',
+                  }}
+                />
+              </label>
+            </div>
           </label>
           <br />
           <label>
-            Vægt (kg):
-            <input type="number" step="0.10" value={vaegt} onChange={(e) => setVaegt(e.target.value)} />
+            <span style={{ fontSize: 14, color: '#575757ff' }}>Vægt (kg):</span>
+            <input type="number" step="0.10" value={weight} onChange={(e) => setWeight(e.target.value)} />
           </label>
           <br />
           <label>
-            Medicin:
-            <select value={medicin} onChange={(e) => setMedicinType(e.target.value)}>
-              <option value="type1">Type1</option>
-              <option value="type2">Type2</option>
+            <span style={{ fontSize: 14, color: '#575757ff' }}>Medicin:</span>
+            <select value={medicine} onChange={(e) => { setMedicineType(e.target.value); setFormula(medicineOptions.find(option => option.value === e.target.value)?.formula); }}>
+              <option value="" disabled>Vælg medicin</option>
+              {medicineOptions.filter(option => option.formula[animalType]).map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
             </select>
           </label>
           <br />
 
-          <button onClick={beregnInjektion}>Beregn injektionsvolumen</button>
+          <button onClick={handleCalculateInjection}>Beregn injektionsvolumen</button>
         </form>
-        {resultat && (
+        {result && (
           <div className="resultat">
-            <h2>Resultat</h2>
-            <p>Injektionsvolumen: <strong>{resultat} ml</strong></p>
+            <p>Injektionsvolumen: <strong>{result} ml</strong></p>
           </div>
         )}
       </div>
     </div>
-
   );
 }
 
