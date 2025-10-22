@@ -10,7 +10,7 @@ const Footer = ({ company = "Store Havelse Dyreklinik", year = new Date().getFul
 
                 <nav aria-label="Footer" style={styles.nav}>
                     <a href="/" style={styles.link}>Forside</a>
-                    <a href="mailto:philip.c.juhl@gmail.com" style={styles.link}>Kontakt</a>
+                    <a href="mailto:philip.c.juhl@gmail.com" style={styles.link}>Forbedringsønsker</a>
                     <a
                         href="https://github.com/philipcj01"
                         target="_blank"
