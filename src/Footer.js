@@ -32,11 +32,18 @@ const Footer = ({ company = "Store Havelse", year = new Date().getFullYear() }) 
 
 const styles = {
     footer: {
+        position: "fixed",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: "100%",
+        boxSizing: "border-box",
         background: "#f7f7f7",
         borderTop: "1px solid #e1e1e1",
         padding: "16px 12px",
         fontSize: "13px",
         color: "#444",
+        zIndex: 1000,
     },
     inner: {
         maxWidth: 980,

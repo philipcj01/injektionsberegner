@@ -14,10 +14,8 @@ function App() {
     }
 
     const kilogram = parseFloat(vaegt);
-    const medicinType = medicin;
 
-    const totalMg = kilogram * 1;
-    const volumenMl = totalMg;
+    const volumenMl = kilogram * (0.22);
 
     setResultat(volumenMl.toFixed(2));
   };
@@ -27,30 +25,30 @@ function App() {
       <div className="App">
         <h1>Injektionsberegner for dyr</h1>
         <form onSubmit={(e) => e.preventDefault()}>
-        <label>
-          Dyr:
-          <select value={dyretype} onChange={(e) => setDyretype(e.target.value)}>
-            <option value="hund">Hund</option>
-            <option value="kat">Kat</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Vægt (kg):
-          <input type="number" step="0.10" value={vaegt} onChange={(e) => setVaegt(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Medicin:
-          <select value={medicin} onChange={(e) => setMedicinType(e.target.value)}>
-            <option value="type1">Type1</option>
-            <option value="type2">Type2</option>
-          </select>
-        </label>
-        <br />
+          <label>
+            Dyr:
+            <select value={dyretype} onChange={(e) => setDyretype(e.target.value)}>
+              <option value="hund">Hund</option>
+              <option value="kat">Kat</option>
+            </select>
+          </label>
+          <br />
+          <label>
+            Vægt (kg):
+            <input type="number" step="0.10" value={vaegt} onChange={(e) => setVaegt(e.target.value)} />
+          </label>
+          <br />
+          <label>
+            Medicin:
+            <select value={medicin} onChange={(e) => setMedicinType(e.target.value)}>
+              <option value="type1">Type1</option>
+              <option value="type2">Type2</option>
+            </select>
+          </label>
+          <br />
 
-        <button onClick={beregnInjektion}>Beregn injektionsvolumen</button>
-      </form>
+          <button onClick={beregnInjektion}>Beregn injektionsvolumen</button>
+        </form>
         {resultat && (
           <div className="resultat">
             <h2>Resultat</h2>
