@@ -10,5 +10,5 @@ export const calculateInjection = (weight, formula) => {
   }
   console.log('Calculating injection with weight:', weight, 'and formula value:', formulaValue);
   const dosage = weight * formulaValue;
-  return dosage.toFixed(2);
+  return dosage.toFixed(2) === "0.00" ? dosage.toFixed(3) : dosage.toFixed(2);
 };
