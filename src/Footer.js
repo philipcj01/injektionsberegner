@@ -1,4 +1,4 @@
-const Footer = ({ company = "Store Havelse Dyreklinik", year = new Date().getFullYear() }) => {
+const Footer = ({ company = "Dosisberegner", year = new Date().getFullYear() }) => {
     return (
         <footer style={styles.footer} role="contentinfo">
             <div style={styles.inner}>
