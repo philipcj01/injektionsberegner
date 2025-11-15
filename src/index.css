@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
 html, body, #root {
   height: 100%;
 }
@@ -16,13 +21,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Ensure the app container can grow to fill available space so the footer sits at the bottom */
-.App-root {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

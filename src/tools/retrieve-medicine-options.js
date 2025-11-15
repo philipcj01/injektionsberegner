@@ -1,9 +1,5 @@
-import axios from 'axios';
-
 export async function fetchMedicineOptions() {
     try {
-        //const response = await axios.get('https://mockapi.example.com/medicine-options'); // Replace with actual URL
-        //return response.data; // Assuming the API returns an array of options
         const options = [
             { value: 'PLEGICIL_10', label: 'Plegicil 10 mg/ml', formula: { dog: 0.002, cat: null } },
             { value: 'INSISTOR_10', label: 'Insistor 10 mg/ml', formula: { dog: 0.04, cat: 0.03, alternative_dog: 0.04 } },
