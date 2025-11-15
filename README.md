@@ -1,72 +1,155 @@
-Simple injection calculator website for vet clinics. Nice to have on your mobile phone, when not at your PC dealing with animal injections.
+# 🐾 Injektionsberegner (Veterinary Injection Calculator)
 
-# Getting Started with Create React App
+[![React](https://img.shields.io/badge/React-19.2.0-61dafb?logo=react)](https://reactjs.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live-www.dosisberegner.dk-brightgreen.svg)](https://www.dosisberegner.dk)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A mobile-friendly web application designed for veterinary clinics to quickly calculate injection dosages for dogs and cats. Perfect for on-the-go use when you're away from your primary workstation.
 
-## Available Scripts
+**🌐 Live Demo: [www.dosisberegner.dk](https://www.dosisberegner.dk)**
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Animal-Specific Calculations**: Supports both dogs and cats with tailored medicine options
+- **Weight-Based Dosage**: Accurate dosage calculations based on animal weight
+- **Alternative Medicine Options**: Special alternative medicine calculations for dogs
+- **Mobile-Optimized**: Responsive design perfect for mobile devices
+- **Real-Time Results**: Instant calculation updates as you input data
+- **Clean Interface**: Simple, intuitive design for quick use in clinical settings
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📱 Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> *Add screenshots of your application here to showcase the UI*
 
-### `npm test`
+## 🛠️ Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** (19.2.0) - Frontend framework
+- **JavaScript** - Programming language
+- **CSS3** - Styling and responsive design
+- **Axios** - HTTP client for API requests
 
-### `npm run build`
+## 🏃‍♂️ Quick Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (version 14 or higher)
+- npm or yarn package manager
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/injektionsberegner.git
+   cd injektionsberegner
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📖 Usage
 
-## Learn More
+1. **Select Animal Type**: Choose between dog (hund) or cat (kat)
+2. **Enter Weight**: Input the animal's weight in kilograms
+3. **Alternative Options**: For dogs, optionally select alternative medicine calculations
+4. **View Results**: The application will display calculated dosages for available medicines
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🏗️ Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/          # React components
+│   ├── animal-selector.js
+│   ├── weight-input.js
+│   ├── alternative-checkbox.js
+│   └── results-list.js
+├── hooks/              # Custom React hooks
+│   ├── use-dosage-results.js
+│   └── use-medicine-options.js
+├── tools/              # Utility functions
+│   ├── calculate-injection.js
+│   └── retrieve-medicine-options.js
+└── tests/              # Test files
+    └── App.test.js
+```
 
-### Code Splitting
+## 🧪 Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run the test suite:
 
-### Analyzing the Bundle Size
+```bash
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 Deployment
 
-### Making a Progressive Web App
+### Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run build
+```
 
-### Advanced Configuration
+This creates an optimized production build in the `build/` folder, ready for deployment to any static hosting service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Deploy Options
 
-### Deployment
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your GitHub repository
+- **GitHub Pages**: Use the `gh-pages` branch
+- **Firebase Hosting**: Use Firebase CLI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🤝 Contributing
 
-### `npm run build` fails to minify
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm start` | Runs the app in development mode |
+| `npm test` | Launches the test runner |
+| `npm run build` | Builds the app for production |
+| `npm run eject` | Ejects from Create React App (one-way operation) |
+
+## 📱 Mobile Usage
+
+This application is optimized for mobile devices, making it perfect for:
+- Quick calculations during veterinary procedures
+- Field work and house calls
+- Emergency situations where desktop access isn't available
+- Backup calculator when primary systems are unavailable
+
+## ⚠️ Disclaimer
+
+This application is designed to assist veterinary professionals with dosage calculations. Always verify calculations and consult with qualified veterinarians before administering any medication to animals.
+
+## 📧 Support
+
+If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/injektionsberegner/issues) on GitHub.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for veterinary professionals</p>
+  <p>🐕 🐱</p>
+</div>
