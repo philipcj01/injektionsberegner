@@ -1,90 +1,37 @@
-.App {
-  max-width: 600px;
-  margin: 40px auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 30px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 outline-none text-gray-800;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .result-card {
+    @apply bg-success-50 border border-success-500/20 rounded-lg p-6 shadow-sm animate-slide-up;
+  }
+  
+  .animal-selector-option {
+    @apply relative cursor-pointer transition-all duration-200 hover:scale-105;
+  }
+  
+  .animal-selector-option.selected {
+    @apply ring-4 ring-primary-500 ring-opacity-50;
+  }
 }
 
-/* page-level root that fills available space so footer is pushed to bottom */
-.App-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 80vh; /* ensure full viewport height when mounted alone */
-}
-
-/* keep sizing consistent between input/select (padding and border included in width) */
-input, select, textarea, button {
-  box-sizing: border-box;
-  display: block; /* ensure both are block-level and respect width:100% the same way */
-  max-width: 100%;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-}
-
-input, select {
-  padding: 10px;
-  margin: 0 auto;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus, select:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
-  outline: none;
-}
-
-button {
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #357abd;
-}
-
-.resultat {
-  margin-top: 25px;
-  background: #e6f9ec;
-  padding: 20px;
-  border: 1px solid #a3e4b7;
-  border-radius: 8px;
-  color: #2d6a4f;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(163, 228, 183, 0.2);
-}
-/* center number inputs horizontally and center their value */
-input[type="number"] {
-  padding: 10px;
-  display: block;
-  border: 1px solid #ccc; 
-  border-radius: 6px;
-  width: 100%;        /* adjust width to your preference */
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-input[type="checkbox"] {
-  outline: none;
-  box-shadow: none;
+/* Custom animations and utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent;
+  }
 }

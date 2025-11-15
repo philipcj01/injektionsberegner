@@ -1,85 +1,39 @@
-const Footer = ({ company = "Dosisberegner", year = new Date().getFullYear() }) => {
-    return (
-        <footer style={styles.footer} role="contentinfo">
-            <div style={styles.inner}>
-                <div style={styles.brand}>
-                    <span style={styles.company}>{company}</span>
-                    <span style={styles.sep}>·</span>
-                    <small style={styles.small}>Injektionsberegner</small>
-                </div>
+import React from 'react';
 
-                <nav aria-label="Footer" style={styles.nav}>
-                    <a href="/" style={styles.link}>Forside</a>
-                    <a href="mailto:philip.c.juhl@gmail.com" style={styles.link}>Forbedringsønsker</a>
-                    <a
-                        href="https://github.com/philipcj01"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={styles.link}
-                    >
-                        GitHub
-                    </a>
-                </nav>
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-                <div style={styles.copy}>
-                    © {year} {company}. Alle rettigheder forbeholdes.
-                </div>
+  return (
+    <footer className="bg-white border-t border-gray-200 mt-12">
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-2xl mx-auto">
+          {/* Main footer content */}
+          <div className="text-center space-y-4">
+
+
+            {/* Important notice */}
+          </div>
+
+          {/* Bottom section */}
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
+              <p className="text-sm text-gray-500">
+                © {currentYear} Injektionsberegner. Alle rettigheder forbeholdes.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-gray-500">
+                <span className="flex items-center space-x-1">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                  <span>Lavet med React</span>
+                </span>
+              </div>
             </div>
-        </footer>
-    );
-};
-
-const styles = {
-    footer: {
-        position: "fixed",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: "100%",
-        boxSizing: "border-box",
-        background: "#f7f7f7",
-        borderTop: "1px solid #e1e1e1",
-        padding: "16px 12px",
-        fontSize: "13px",
-        color: "#444",
-        zIndex: 1000,
-    },
-    inner: {
-        maxWidth: 980,
-        margin: "0 auto",
-        display: "flex",
-        flexWrap: "wrap",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: 12,
-    },
-    brand: {
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-    },
-    company: {
-        fontWeight: 600,
-    },
-    sep: {
-        color: "#bbb",
-    },
-    small: {
-        color: "#666",
-    },
-    nav: {
-        display: "flex",
-        gap: 12,
-        flexWrap: "wrap",
-    },
-    link: {
-        color: "#0366d6",
-        textDecoration: "none",
-    },
-    copy: {
-        color: "#777",
-        marginLeft: "auto",
-    },
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
